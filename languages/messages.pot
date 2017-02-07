@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pagekit 1.0.11 (jebster/money-support, messages)\n"
-"POT-Creation-Date: 2017-02-06 22:56+0000\n"
+"POT-Creation-Date: 2017-02-07 16:55+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,5 +28,59 @@ msgid "Create monthly payment"
 msgstr ""
 
 msgid "Or donate via PayPal"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Repeating donations"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Force HTTPS"
+msgstr ""
+
+msgid "Repeating donation settings"
+msgstr ""
+
+msgid "Header"
+msgstr ""
+
+msgid "Default amount"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "One time donation settings"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "Short description"
+msgstr ""
+
+msgid "Short text shown on PayPal site"
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "Submissions"
+msgstr ""
+
+msgid "Money Support Settings"
 msgstr ""
 

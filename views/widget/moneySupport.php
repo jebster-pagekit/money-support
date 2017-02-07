@@ -1,6 +1,14 @@
 <?php
 $view->script('bootstrap-validator', 'https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js');
 $paypal = $data['paypal'];
+
+
+if($data['https'] && !isset($_SERVER['HTTPS'])){
+    echo "<script>
+            location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        </script>";
+}
+
 ?>
 
 <style>
