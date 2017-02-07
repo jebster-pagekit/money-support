@@ -9,7 +9,7 @@ return [
     'render' => function ($widget) use ($app) {
         // https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/html_example_donate/#basic-donate-button
 
-        $data = App::module('money-support')->config;
+        $data = App::module('money-support')->config['settings'];
 
         return $app->view('money-support/widget/moneySupport.php', compact('data'));
     }

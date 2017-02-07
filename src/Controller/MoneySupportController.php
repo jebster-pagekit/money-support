@@ -36,11 +36,11 @@ class MoneySupportController
     }
 
     /**
-     * @Route("money-support/settings", name="settings")
+     * @Route("settings", name="settings")
      * @Access(admin=true)
      */
     public function settingsAction(){
-        $config = App::module('money-support')->config;
+        $config = App::module('money-support')->config['settings'];
 
         return [
             '$view' => [
@@ -51,6 +51,16 @@ class MoneySupportController
                 'config' => $config
             ]
         ];
+    }
+
+    /**
+     * @Route("update-settings", name="update-settings")
+     * @Request({"config": "array"}, csrf=true)
+     * @Access(admin=true)
+     */
+    public function updateSettingsAction($config){
+        App::config('money-support')->set('settings', $config);
+        return ['message' => 'success'];
     }
 
 }

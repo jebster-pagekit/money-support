@@ -8,7 +8,13 @@ $(function(){
         },
 
         methods: {
-
+            save: function () {
+                this.$http.post('/admin/money-support/update-settings', { config: this.config}, function() {
+                    UIkit.notify(vm.$trans('Saved'), '');
+                }).error(function(data) {
+                    UIkit.notify(data, 'danger');
+                });
+            }
         }
     });
 });
