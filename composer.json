@@ -1,6 +1,6 @@
 {
   "name": "jebster/money-support",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "pagekit-extension",
   "title": "Money Support",
   "description": "Gives the possibility for users to support with money",

@@ -41,8 +41,8 @@ $paypal = $data['paypal'];
     <!-- Tab panes -->
     <div class="tab-content">
         <div class="tab-pane fade in active" id="repeating">
-            <h1><?= $paypal['repeating']['heading'] ?></h1>
-            <p><?= $paypal['repeating']['description'] ?></p>
+            <h1><?= $data['repeating']['heading'] ?></h1>
+            <p><?= $data['repeating']['description'] ?></p>
             <form class="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" data-toggle="validator" role="form">
                 <input type="hidden" name="business" value="<?= $paypal['email'] ?>">
                 <input type="hidden" name="cmd" value="_xclick-subscriptions">
@@ -57,7 +57,7 @@ $paypal = $data['paypal'];
                         <?= __('Amount') ?>
                     </label>
                     <input type="number" id="inputName" class="form-control" name="a3" size="21"
-                           value="<?= $paypal['repeating']['defaultAmount'] ?>" data-minlength="1" min="1" required
+                           value="<?= $data['repeating']['defaultAmount'] ?>" data-minlength="1" min="1" required
                            data-error="<?= __('Donation can\'t be less than 1.') ?>" placeholder="<?= __('Name') ?>" />
                     <div class="help-block with-errors"></div>
                 </div>
@@ -68,9 +68,9 @@ $paypal = $data['paypal'];
         </div>
 
         <div class="tab-pane fade" id="once">
-            <h1><?= $paypal['onetime']['heading'] ?></h1>
+            <h1><?= $data['onetime']['heading'] ?></h1>
             <div>
-                <?= $paypal['onetime']['description'] ?>
+                <?= $data['onetime']['description'] ?>
             </div>
             <br>
             <p>
@@ -79,7 +79,7 @@ $paypal = $data['paypal'];
 
                 <input type="hidden" name="cmd" value="_donations">
                 <input type="hidden" name="item_name" value="<?= $paypal['to'] ?>">
-                <input type="hidden" name="item_number" value="<?= $paypal['onetime']['short'] ?>">
+                <input type="hidden" name="item_number" value="<?= $paypal['short'] ?>">
                 <input type="hidden" name="currency_code" value="<?= $paypal['currency'] ?>">
 
                 <!-- Display the payment button. -->

@@ -10,11 +10,45 @@ namespace Jebster\MoneySupport\Controller;
 
 use Pagekit\Application as App;
 
-class MoneySupportController{
-
+class MoneySupportController
+{
+    /**
+     * @Access(admin=true)
+     */
     public function indexAction(){
-        // TODO:
         return [];
+    }
+
+    /**
+     * @Access(admin=true)
+     */
+    public function submissionsAction(){
+        return [
+            '$view' => [
+                'title' => __("Submissions"),
+                'name' => 'money-support:views/admin/submissions.php'
+            ],
+            '$data' => [
+                'config' => []
+            ]
+        ];
+    }
+
+    /**
+     * @Access(admin=true)
+     */
+    public function settingsAction(){
+        $config = App::module('money-support')->config;
+
+        return [
+            '$view' => [
+                'title' => __("Money Support Settings"),
+                'name' => 'money-support:views/admin/settings.php'
+            ],
+            '$data' => [
+                'config' => $config
+            ]
+        ];
     }
 
 }
