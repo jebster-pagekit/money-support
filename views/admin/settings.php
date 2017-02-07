@@ -9,7 +9,11 @@ $view->script('settings', 'money-support:js/settings.js', ['vue', 'uikit', 'edit
                 <ul class="uk-nav uk-nav-side pk-nav-large" data-uk-tab="{ connect: '#tab-content' }">
                     <li class="uk-active"><a>
                         <i class="pk-icon-large-settings uk-margin-right"></i>
-                        {{ 'General' | trans }}
+                        {{ 'Repeating donations' | trans }}
+                    </a></li>
+                    <li><a>
+                        <i class="pk-icon-large-settings uk-margin-right"></i>
+                        {{ 'One time donation' | trans }}
                     </a></li>
                     <li><a>
                         <img class="uk-margin-right" style="height:25px; width: 25px;"
@@ -43,14 +47,6 @@ $view->script('settings', 'money-support:js/settings.js', ['vue', 'uikit', 'edit
                     </div>
 
                     <div class="uk-form-row">
-                        <label class="uk-form-label">{{ 'Description' | trans }}</label>
-                        <div class="uk-form-controls uk-form-controls-text">
-                            <p class="uk-form-controls-condensed">
-                                <input type="text" v-model="config.repeating.description" class="uk-form-width-large">
-                            </p>
-                        </div>
-                    </div>
-                    <div class="uk-form-row">
                         <label class="uk-form-label">{{ 'Default amount' | trans }}</label>
                         <div class="uk-form-controls uk-form-controls-text">
                             <p class="uk-form-controls-condensed">
@@ -59,7 +55,25 @@ $view->script('settings', 'money-support:js/settings.js', ['vue', 'uikit', 'edit
                         </div>
                     </div>
 
-                    <h2>{{ 'One time donation settings' | trans }}</h2>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">{{ 'Description' | trans }}</label>
+                        <div class="uk-form-controls uk-form-controls-text">
+                            <p class="uk-form-controls-condensed">
+                                <v-editor id="form-description" :value.sync="config.repeating.description" :options="{markdown : post.data.markdown}"></v-editor>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin uk-flex uk-flex-space-between uk-flex-wrap" data-uk-margin>
+                        <div data-uk-margin>
+                            <h2 class="uk-margin-remove">{{ 'One time donation settings' | trans }}</h2>
+                        </div>
+
+                        <div data-uk-margin>
+                            <button class="uk-button uk-button-primary" @click.prevent="save">{{ 'Save' | trans }}</button>
+                        </div>
+                    </div>
 
                     <div class="uk-form-row">
                         <label class="uk-form-label">{{ 'Header' | trans }}</label>
@@ -73,7 +87,7 @@ $view->script('settings', 'money-support:js/settings.js', ['vue', 'uikit', 'edit
                         <label class="uk-form-label">{{ 'Description' | trans }}</label>
                         <div class="uk-form-controls uk-form-controls-text">
                             <p class="uk-form-controls-condensed">
-                                <v-editor id="form-description" :value.sync="config.onetime.description" :options="{markdown : post.data.markdown, height: 10}"></v-editor>
+                                <v-editor id="form-description" :value.sync="config.onetime.description" :options="{markdown : post.data.markdown}"></v-editor>
 <!--                                <input type="text" v-model="config.onetime.description" class="uk-form-width-large">-->
                             </p>
                         </div>
