@@ -20,6 +20,7 @@ class MoneySupportController
     }
 
     /**
+     * @Route("submissions", name="submissions")
      * @Access(admin=true)
      */
     public function submissionsAction(){
@@ -35,6 +36,7 @@ class MoneySupportController
     }
 
     /**
+     * @Route("money-support/settings", name="settings")
      * @Access(admin=true)
      */
     public function settingsAction(){

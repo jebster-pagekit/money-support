@@ -42,8 +42,8 @@ Suðuroyar Sparikassi: 9870-9953931</p>'
     ],
 
     'routes' => [
-        'money-support' => [
-            'path' => '/money-support',
+        '/money-support' => [
+            'name' => '@money-support',
             'controller' => 'Jebster\\MoneySupport\\Controller\\MoneySupportController'
         ]
     ],
