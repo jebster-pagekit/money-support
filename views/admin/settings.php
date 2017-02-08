@@ -176,6 +176,15 @@ $view->style('font-awesome','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/
                         </div>
                     </div>
 
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">{{ 'Description' | trans }}</label>
+                        <div class="uk-form-controls uk-form-controls-text">
+                            <p class="uk-form-controls-condensed">
+                                <v-editor id="form-description" :value.sync="config.paypal.description" :options="{markdown : post.data.markdown}"></v-editor>
+                            </p>
+                        </div>
+                    </div>
+
                 </li>
             </ul>
         </div>

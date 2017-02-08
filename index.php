@@ -35,7 +35,8 @@ return [
                 'email' => 'jeggy@jebster.net',
                 'to' => 'to',
                 'currency' => 'USD',
-                'short' => ''
+                'short' => '',
+                'description' => ''
             ]
         ]
     ],

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pagekit 1.0.11 (jebster/money-support, messages)\n"
-"POT-Creation-Date: 2017-02-07 16:55+0000\n"
+"POT-Creation-Date: 2017-02-08 23:37+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,22 +9,28 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Amount"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Bank account number"
+msgstr ""
+
+msgid "Create monthly payment"
+msgstr ""
+
 msgid "Repeating donation"
 msgstr ""
 
 msgid "One time donation"
 msgstr ""
 
-msgid "Amount"
-msgstr ""
-
-msgid "Donation can't be less than 1."
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Create monthly payment"
+msgid "Create monthly payment via PayPal"
 msgstr ""
 
 msgid "Or donate via PayPal"
@@ -60,9 +66,6 @@ msgstr ""
 msgid "One time donation settings"
 msgstr ""
 
-msgid "Email"
-msgstr ""
-
 msgid "To"
 msgstr ""
 
@@ -75,12 +78,57 @@ msgstr ""
 msgid "Short text shown on PayPal site"
 msgstr ""
 
-msgid "Saved"
+msgid "Submission"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Bank Account"
 msgstr ""
 
 msgid "Submissions"
 msgstr ""
 
+msgid "Status"
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "Sent"
+msgstr ""
+
+msgid "You have already sent."
+msgstr ""
+
+msgid "Submission not found!"
+msgstr ""
+
 msgid "Money Support Settings"
+msgstr ""
+
+msgid "Failed to send, please try again later."
+msgstr ""
+
+msgid "Amount can't be less than 0."
+msgstr ""
+
+msgid "Please enter your name."
+msgstr ""
+
+msgid "Please enter a valid email address."
+msgstr ""
+
+msgid "Please enter a valid bank account number."
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "Handled"
+msgstr ""
+
+msgid "Trashed"
 msgstr ""
 

@@ -1,13 +1,18 @@
 <?php
-$view->script('bootstrap-validator', 'https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js');
 $paypal = $data['paypal'];
 
+$js = "defaultAmount = ".$data['repeating']['defaultAmount'].";";
 
 if($data['https'] && !isset($_SERVER['HTTPS'])){
-    echo "<script>
-            location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-        </script>";
+    $js .= "location.href = 'https:' + window.location.href.substring(window.location.protocol.length);";
 }
+echo "<script>$js</script>";
+
+$view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
+
+
+
+
 
 ?>
 
@@ -51,6 +56,46 @@ if($data['https'] && !isset($_SERVER['HTTPS'])){
         <div class="tab-pane fade in active" id="repeating">
             <h1><?= $data['repeating']['heading'] ?></h1>
             <p><?= $data['repeating']['description'] ?></p>
+
+            <form v-on:submit.prevent>
+                <div class="form-group">
+                    <label class="control-label" for="form-amount">
+                        {{ 'Amount' | trans }}
+                    </label>
+                    <input type="number" id="form-amount" class="form-control"
+                           v-model="form.amount" required />
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="form-name">
+                        {{ 'Name' | trans }}
+                    </label>
+                    <input type="text" id="form-name" class="form-control"
+                           v-model="form.name" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="form-email">
+                        {{ 'Email' | trans }}
+                    </label>
+                    <input type="email" id="form-email" class="form-control"
+                           v-model="form.email" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="form-bank">
+                        {{ 'Bank account number' | trans }}
+                    </label>
+                    <input type="text" id="form-bank" class="form-control"
+                           v-model="form.bank" placeholder="9181-12345678" required />
+                </div>
+                <p>
+                    {{ message.text }}
+                </p>
+                <button class="btn btn-danger" @click="send">{{ 'Create monthly payment' | trans }}</button>
+
+            </form>
+
+            <hr>
+            <p><?= $paypal['description'] ?></p>
             <form class="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" data-toggle="validator" role="form">
                 <input type="hidden" name="business" value="<?= $paypal['email'] ?>">
                 <input type="hidden" name="cmd" value="_xclick-subscriptions">
@@ -59,18 +104,9 @@ if($data['https'] && !isset($_SERVER['HTTPS'])){
                 <input type="hidden" name="p3" value="1">
                 <input type="hidden" name="t3" value="M">
                 <input type="hidden" name="src" value="1">
+                <input type="hidden" name="a3" v-model="form.amount">
 
-                <div class="form-group">
-                    <label class="control-label" for="inputName">
-                        <?= __('Amount') ?>
-                    </label>
-                    <input type="number" id="inputName" class="form-control" name="a3" size="21"
-                           value="<?= $data['repeating']['defaultAmount'] ?>" data-minlength="1" min="1" required
-                           data-error="<?= __('Donation can\'t be less than 1.') ?>" placeholder="<?= __('Name') ?>" />
-                    <div class="help-block with-errors"></div>
-                </div>
-                <br>
-                <input class="btn btn-danger" type="submit" name="submit" value="<?= __('Create monthly payment') ?>">
+                <input @prevent="send" class="btn btn-danger" type="submit" name="submit" value="<?= __('Create monthly payment via PayPal') ?>">
                 <br><br>
             </form>
         </div>
