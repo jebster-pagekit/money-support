@@ -2,6 +2,8 @@
 $paypal = $data['paypal'];
 
 $js = "defaultAmount = ".$data['repeating']['defaultAmount'].";";
+$js .= "amountPossibilities = '".$data['repeating']['possibilities']."';";
+$js .= "towards = '".$data['towards']."';";
 
 if($data['https'] && !isset($_SERVER['HTTPS'])){
     $js .= "location.href = 'https:' + window.location.href.substring(window.location.protocol.length);";
@@ -34,10 +36,12 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
     .nav-tabs, .nav-pills {
         text-align:center;
     }
-
-    .paypal-form .form-group input{
-
-    }
+    @media(min-width: 768px){
+    .form-group .form-control{
+        width: 50%;
+        margin: 0 auto;
+        float: none;
+    }}
 </style>
 
 <br>
@@ -59,12 +63,27 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
 
             <form v-on:submit.prevent>
                 <div class="form-group">
-                    <label class="control-label" for="form-amount">
+                    <label class="control-label" for="form-amountDrop">
                         {{ 'Amount' | trans }}
                     </label>
-                    <input type="number" id="form-amount" class="form-control"
-                           v-model="form.amount" required />
-                    <div class="help-block with-errors"></div>
+                    <select id="form-amountDrop" class="form-control" v-model="selectedAmount" v-on:change="onChange">
+                        <option v-for="option in moneyOptions">
+                            {{ option }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" v-show="otherAmount">
+                    <input type="number" class="form-control" v-model="form.amount">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="form-towards">
+                        {{ 'Give to' | trans }}
+                    </label>
+                    <select id="form-towards" class="form-control" v-model="form.towards">
+                        <option v-for="option in towardOptions">
+                             {{ option }}
+                        </option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="form-name">
@@ -77,7 +96,7 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
                     <label class="control-label" for="form-email">
                         {{ 'Email' | trans }}
                     </label>
-                    <input type="email" id="form-email" class="form-control"
+                    <input type="email" id="form-email" class="form-control col-centered"
                            v-model="form.email" required />
                 </div>
                 <div class="form-group">
@@ -85,7 +104,7 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
                         {{ 'Bank account number' | trans }}
                     </label>
                     <input type="text" id="form-bank" class="form-control"
-                           v-model="form.bank" placeholder="9181-12345678" required />
+                           v-model="form.bank" placeholder="9181-1234567" required />
                 </div>
                 <p>
                     {{ message.text }}
@@ -132,6 +151,8 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
                 </p>
             <?php endif; ?>
         </div>
+        <br>
     </div>
+    <br>
 </div>
 

@@ -92,6 +92,24 @@ $view->style('font-awesome','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/
                     </div>
 
                     <div class="uk-form-row">
+                        <label class="uk-form-label">{{ 'Towards' | trans }}</label>
+                        <div class="uk-form-controls uk-form-controls-text">
+                            <p class="uk-form-controls-condensed">
+                                <input type="text" v-model="config.towards" class="uk-form-width-large">
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">{{ 'Amounts' | trans }}</label>
+                        <div class="uk-form-controls uk-form-controls-text">
+                            <p class="uk-form-controls-condensed">
+                                <input type="text" v-model="config.repeating.possibilities" class="uk-form-width-large">
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="uk-form-row">
                         <label class="uk-form-label">{{ 'Default amount' | trans }}</label>
                         <div class="uk-form-controls uk-form-controls-text">
                             <p class="uk-form-controls-condensed">

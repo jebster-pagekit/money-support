@@ -122,7 +122,8 @@ class MoneySupportController
         Submission::create([
             'name' => $submission['name'],
             'email' => $submission['email'],
-            'bank' => $submission['bank'],
+            'towards' => $submission['towards'],
+            'bank_account' => $submission['bank'],
             'amount' => $submission['amount'],
             'time' => new DateTime(),
             'ip' => $_SERVER['REMOTE_ADDR']

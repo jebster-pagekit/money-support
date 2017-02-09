@@ -18,6 +18,9 @@ $view->script('settings', 'money-support:js/submissions.js', ['vue', 'uikit', 'm
                 {{ 'Submission Date' | trans }}
             </th>
             <th>
+                {{ 'Towards' | trans }}
+            </th>
+            <th>
                 {{ 'Name' | trans }}
             </th>
             <th>
@@ -34,6 +37,9 @@ $view->script('settings', 'money-support:js/submissions.js', ['vue', 'uikit', 'm
                     <a href="admin/money-support/submissions/{{submission.id}}">
                         {{ dateFormat(submission.time) }}
                     </a>
+                </td>
+                <td>
+                    {{ submission.towards }}
                 </td>
                 <td>
                     {{ submission.name }}

@@ -15,6 +15,12 @@ $view->script('submission', 'money-support:js/submission.js', ['vue', 'uikit', '
                     {{ dateFormat(submission.time) }}
                 </dd>
                 <dt>
+                    {{ 'Towards' | trans }}
+                </dt>
+                <dd>
+                    {{ submission.towards }}
+                </dd>
+                <dt>
                     {{ 'Amount' | trans }}:
                 </dt>
                 <dd>

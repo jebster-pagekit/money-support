@@ -23,6 +23,7 @@ return [
         'settings' => [
             'https' => false,
             'paypal_enabled' => false,
+            'towards' => 'Corp1,Corp2',
             'onetime' => [
                 'heading' => 'You rather give a one time donation?',
                 'description' => '<p>A description</p>'
@@ -31,15 +32,15 @@ return [
                 'heading' => 'Automatic monthly payment',
                 'description' => '<p>Create a automatic monthly payment through PayPal.</p>',
                 'defaultAmount' => 200,
+                'possibilities' => '20,50,100,200,500'
             ],
             'paypal' => [
                 'email' => 'jeggy@jebster.net',
-                'to' => 'to',
                 'currency' => 'USD',
                 'short' => '',
                 'description' => ''
-            ]
-        ]
+            ],
+         ]
     ],
 
     'routes' => [
