@@ -22,6 +22,7 @@ return [
     'config' => [
         'settings' => [
             'https' => false,
+            'paypal_enabled' => false,
             'onetime' => [
                 'heading' => 'You rather give a one time donation?',
                 'description' => '<p>A description</p>'

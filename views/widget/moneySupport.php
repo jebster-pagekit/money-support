@@ -93,22 +93,22 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
                 <button class="btn btn-danger" @click="send">{{ 'Create monthly payment' | trans }}</button>
 
             </form>
+            <?php if($data['paypal_enabled']): ?>
+                <hr><p><?= $paypal['description'] ?></p>
+                <form class="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" data-toggle="validator" role="form">
+                    <input type="hidden" name="business" value="<?= $paypal['email'] ?>">
+                    <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                    <input type="hidden" name="item_name" value="<?= $paypal['to'] ?>">
+                    <input type="hidden" name="currency_code" value="<?= $paypal['currency'] ?>">
+                    <input type="hidden" name="p3" value="1">
+                    <input type="hidden" name="t3" value="M">
+                    <input type="hidden" name="src" value="1">
+                    <input type="hidden" name="a3" v-model="form.amount">
 
-            <hr>
-            <p><?= $paypal['description'] ?></p>
-            <form class="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" data-toggle="validator" role="form">
-                <input type="hidden" name="business" value="<?= $paypal['email'] ?>">
-                <input type="hidden" name="cmd" value="_xclick-subscriptions">
-                <input type="hidden" name="item_name" value="<?= $paypal['to'] ?>">
-                <input type="hidden" name="currency_code" value="<?= $paypal['currency'] ?>">
-                <input type="hidden" name="p3" value="1">
-                <input type="hidden" name="t3" value="M">
-                <input type="hidden" name="src" value="1">
-                <input type="hidden" name="a3" v-model="form.amount">
-
-                <input @prevent="send" class="btn btn-danger" type="submit" name="submit" value="<?= __('Create monthly payment via PayPal') ?>">
-                <br><br>
-            </form>
+                    <input @prevent="send" class="btn btn-danger" type="submit" name="submit" value="<?= __('Create monthly payment via PayPal') ?>">
+                    <br><br>
+                </form>
+            <?php else: echo '<br>'; endif; ?>
         </div>
 
         <div class="tab-pane fade" id="once">
@@ -116,22 +116,21 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
             <div>
                 <?= $data['onetime']['description'] ?>
             </div>
-            <br>
-            <p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="business" value="<?= $paypal['email'] ?>">
 
-                <input type="hidden" name="cmd" value="_donations">
-                <input type="hidden" name="item_name" value="<?= $paypal['to'] ?>">
-                <input type="hidden" name="item_number" value="<?= $paypal['short'] ?>">
-                <input type="hidden" name="currency_code" value="<?= $paypal['currency'] ?>">
+            <?php if($data['paypal_enabled']): ?>
+                <br><p>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="business" value="<?= $paypal['email'] ?>">
 
-                <!-- Display the payment button. -->
-                <input type="submit" class="btn btn-danger" name="submit" value="<?= __('Or donate via PayPal') ?>" alt="Donate">
+                    <input type="hidden" name="cmd" value="_donations">
+                    <input type="hidden" name="item_name" value="<?= $paypal['to'] ?>">
+                    <input type="hidden" name="item_number" value="<?= $paypal['short'] ?>">
+                    <input type="hidden" name="currency_code" value="<?= $paypal['currency'] ?>">
 
-            </form>
-
-            </p>
+                    <input type="submit" class="btn btn-danger" name="submit" value="<?= __('Or donate via PayPal') ?>" alt="Donate">
+                </form>
+                </p>
+            <?php endif; ?>
         </div>
     </div>
 </div>

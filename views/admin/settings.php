@@ -29,7 +29,7 @@ $view->style('font-awesome','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/
                         <i class="fa fa-list-alt uk-margin-right" aria-hidden="true"></i>
                         {{ 'One time donation' | trans }}
                     </a></li>
-                    <li><a>
+                    <li v-show="config.paypal_enabled"><a>
                         <i class="fa fa-cc-paypal uk-margin-right" aria-hidden="true"></i>
                         PayPal
                     </a></li>
@@ -56,6 +56,16 @@ $view->style('font-awesome','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/
                             <label class="uk-form-controls-condensed" for="input-https">
                                 <input id="input-https" type="checkbox" v-model="config.https" class="uk-form-width-large">
                                 {{ 'Force HTTPS' | trans }}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">PayPal</label>
+                        <div class="uk-form-controls uk-form-controls-text">
+                            <label class="uk-form-controls-condensed" for="input-paypal-enabled">
+                                <input id="input-paypal-enabled" type="checkbox" v-model="config.paypal_enabled" class="uk-form-width-large">
+                                {{ 'Enable PayPal' | trans }}
                             </label>
                         </div>
                     </div>
