@@ -109,7 +109,7 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
                 <p>
                     {{ message.text }}
                 </p>
-                <button class="btn btn-danger" @click="send">{{ 'Create monthly payment' | trans }}</button>
+                <button class="btn btn-red" @click="send">{{ 'Create monthly payment' | trans }}</button>
 
             </form>
             <?php if($data['paypal_enabled']): ?>
@@ -124,7 +124,7 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
                     <input type="hidden" name="src" value="1">
                     <input type="hidden" name="a3" v-model="form.amount">
 
-                    <input @prevent="send" class="btn btn-danger" type="submit" name="submit" value="<?= __('Create monthly payment via PayPal') ?>">
+                    <input @prevent="send" class="btn btn-red" type="submit" name="submit" value="<?= __('Create monthly payment via PayPal') ?>">
                     <br><br>
                 </form>
             <?php else: echo '<br>'; endif; ?>
@@ -146,7 +146,7 @@ $view->script('moneySupport', 'money-support:js/widget.js', ['vue']);
                     <input type="hidden" name="item_number" value="<?= $paypal['short'] ?>">
                     <input type="hidden" name="currency_code" value="<?= $paypal['currency'] ?>">
 
-                    <input type="submit" class="btn btn-danger" name="submit" value="<?= __('Or donate via PayPal') ?>" alt="Donate">
+                    <input type="submit" class="btn btn-red" name="submit" value="<?= __('Or donate via PayPal') ?>" alt="Donate">
                 </form>
                 </p>
             <?php endif; ?>

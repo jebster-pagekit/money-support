@@ -1,6 +1,7 @@
 <?php
 $view->script('settings', 'money-support:js/settings.js', ['vue', 'uikit', 'editor']);
 $view->style('font-awesome','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+__('Donations');
 ?>
 
 <style>

@@ -18,6 +18,7 @@ class MoneySupportController
      * @Access(admin=true)
      */
     public function indexAction(){
+        echo __('Donations');
         return [];
     }
 

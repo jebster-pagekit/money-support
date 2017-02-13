@@ -53,7 +53,8 @@ return [
     'menu' => [
         'donations' => [
             'label' => 'Donations',
-            'icon' => 'app/system/assets/images/placeholder-icon.svg',
+            // https://www.iconfinder.com/icons/299107/money_icon#size=128
+            'icon' => 'money-support:assets/images/menu-item.svg',
             'url' => '@money-support/submissions',
             'active' => '@money-support/*'
         ],
