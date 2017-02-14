@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pagekit 1.0.11 (jebster/money-support, messages)\n"
-"POT-Creation-Date: 2017-02-13 22:33+0000\n"
+"POT-Creation-Date: 2017-02-14 00:15+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,6 +118,15 @@ msgid "Sent"
 msgstr ""
 
 msgid "You have already sent."
+msgstr ""
+
+msgid "Edit settings"
+msgstr ""
+
+msgid "View submissions"
+msgstr ""
+
+msgid "Edit submissions"
 msgstr ""
 
 msgid "Submission not found!"

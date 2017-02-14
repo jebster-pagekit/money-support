@@ -18,13 +18,17 @@ class MoneySupportController
      * @Access(admin=true)
      */
     public function indexAction(){
+        // TODO: pagekit bug? I need these somewhere for them to get translated in the index.php
         echo __('Donations');
+        echo __('Edit settings');
+        echo __('View submissions');
+        echo __('Edit submissions');
         return [];
     }
 
     /**
      * @Route("submissions", name="submissions")
-     * @Access(admin=true)
+     * @Access("money-support: view submissions", admin=true)
      */
     public function submissionsAction(){
         $submissions = array_values(Submission::getAll());
@@ -43,7 +47,7 @@ class MoneySupportController
 
     /**
      * @Route("submissions/{id}", name="submission")
-     * @Access(admin=true)
+     * @Access("money-support: view submissions", admin=true)
      */
     public function submissionAction($id){
         $submission = Submission::find($id);
@@ -66,7 +70,7 @@ class MoneySupportController
     /**
      * @Route("update-submission", name="jebster-update-submission")
      * @Request({"submission": "array"}, csrf=true)
-     * @Access(admin=true)
+     * @Access("money-support: edit submissions", admin=true)
      */
     public function updateSubmissionAction($submission = null){
         $dbsub = Submission::find($submission['id']);
@@ -80,7 +84,7 @@ class MoneySupportController
 
     /**
      * @Route("settings", name="settings")
-     * @Access(admin=true)
+     * @Access("money-support: edit settings", admin=true)
      */
     public function settingsAction(){
         $config = App::module('money-support')->config['settings'];
@@ -99,7 +103,7 @@ class MoneySupportController
     /**
      * @Route("update-settings", name="update-settings")
      * @Request({"config": "array"}, csrf=true)
-     * @Access(admin=true)
+     * @Access("money-support: edit settings", admin=true)
      */
     public function updateSettingsAction($config){
         App::config('money-support')->set('settings', $config);

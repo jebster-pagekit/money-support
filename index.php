@@ -56,19 +56,34 @@ return [
             // https://www.iconfinder.com/icons/299107/money_icon#size=128
             'icon' => 'money-support:assets/images/menu-item.svg',
             'url' => '@money-support/submissions',
-            'active' => '@money-support/*'
+            'active' => '@money-support/*',
+            'access' => 'money-support: view submissions'
         ],
         'donations: submissions' => [
             'label' => 'Submissions',
             'parent' => 'donations',
             'url' => '@money-support/submissions',
-            'active' => '@money-support/submissions'
+            'active' => '@money-support/submissions',
+            'access' => 'money-support: view submissions'
         ],
         'donations: settings' => [
             'label' => 'Settings',
             'parent' => 'donations',
             'url' => '@money-support/settings',
-            'active' => '@money-support/settings'
+            'active' => '@money-support/settings',
+            'access' => 'money-support: edit settings'
+        ]
+    ],
+
+    'permissions' => [
+        'money-support: edit settings' => [
+            'title' => _('Edit settings')
+        ],
+        'money-support: view submissions' => [
+            'title' => _('View submissions')
+        ],
+        'money-support: edit submissions' => [
+            'title' => _('Edit submissions')
         ]
     ],
 
@@ -76,5 +91,5 @@ return [
         'widgets/moneySupportWidget.php'
     ],
 
-    'settings' => '@money-support/settings', // TODO: Fix this everywhere
+    'settings' => '@money-support/settings',
 ];
